@@ -1,23 +1,30 @@
 import React from 'react';
-
-const skills = ["React", "JavaScript", "TypeScript", "Node.js", "Python", "Tailwind CSS", "PostgreSQL", "Docker"];
+import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 export default function Skills() {
+  const { skills } = PORTFOLIO_DATA;
+
   return (
     <section id="skills" className="py-24 px-4">
-      <div className="max-w-4xl mx-auto space-y-8 text-center">
-        <h2 className="text-3xl font-bold text-white">Skills & Competencies</h2>
-        <div className="flex flex-wrap justify-center gap-3">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 text-sm font-medium"
+      <div className="max-w-5xl mx-auto space-y-8 text-center">
+        <div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Skills & Technologies</h2>
+          <div className="w-16 h-1 bg-cyan-400 mx-auto rounded-full mt-3" />
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-800/80 transition-all text-center space-y-1"
             >
-              {skill}
-            </span>
+              <h3 className="text-slate-100 font-semibold text-base">{skill.name}</h3>
+              <p className="text-xs text-cyan-400 font-medium">{skill.category}</p>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
