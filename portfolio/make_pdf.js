@@ -1,0 +1,53 @@
+import fs from 'fs';
+import path from 'path';
+
+const pdfHeader = `%PDF-1.4
+1 0 obj <</Type /Catalog /Pages 2 0 R>> endobj
+2 0 obj <</Type /Pages /Kids [3 0 R] /Count 1>> endobj
+3 0 obj <</Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources <</Font <</F1 4 0 R>>>> /Contents 5 0 R>> endobj
+4 0 obj <</Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold>> endobj
+5 0 obj <</Length 600>> stream
+BT
+/F1 22 Tf
+50 740 Td
+(BHARGAV ADAGE) Tj
+/F1 12 Tf
+0 -25 Td
+(AI/ML & Gen AI Engineer | Full Stack Developer) Tj
+0 -18 Td
+(Email: adagebhargav8@gmail.com | Location: India) Tj
+0 -18 Td
+(GitHub: https://github.com/bhargavadage08) Tj
+0 -18 Td
+(LinkedIn: https://www.linkedin.com/in/bhargav-adage) Tj
+0 -30 Td
+(PROFILE SUMMARY) Tj
+0 -18 Td
+(Aspiring AI/ML developer and BCA student passionate about building intelligent) Tj
+0 -15 Td
+(solutions, RAG knowledge systems, full-stack applications, and mobile apps.) Tj
+0 -30 Td
+(TECHNICAL SKILLS) Tj
+0 -18 Td
+(- Gen AI & ML: Python, LangChain, RAG, Vector DBs, Prompt Engineering) Tj
+0 -15 Td
+(- Web & Mobile: React, Flutter, JavaScript, HTML5, CSS3, Tailwind CSS) Tj
+0 -15 Td
+(- Backend & DB: REST APIs, MySQL, PostgreSQL, Docker, AWS) Tj
+ET
+endstream endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000062 00000 n 
+0000000117 00000 n 
+0000000234 00000 n 
+0000000307 00000 n 
+trailer <</Size 6 /Root 1 0 R>>
+startxref
+960
+%%EOF`;
+
+fs.writeFileSync('./public/Bhargav_Adage_CV.pdf', pdfHeader);
+console.log('Bhargav_Adage_CV.pdf created successfully');

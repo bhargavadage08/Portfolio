@@ -8,7 +8,8 @@ export const PORTFOLIO_DATA = {
     github: "https://github.com/bhargavadage08",
     linkedin: "https://www.linkedin.com/in/bhargav-adage",
     location: "India",
-    status: "Open to Collaborations & Opportunities"
+    status: "Open to Collaborations & Opportunities",
+    cvUrl: "/Bhargav_Adage_CV.pdf"
   },
   skills: [
     { name: "Python", category: "AI / ML & Backend" },
@@ -36,7 +37,7 @@ export const PORTFOLIO_DATA = {
       id: "flutter-cross-app",
       title: "Smart Cross-Platform Mobile App",
       description: "Performant cross-platform mobile application crafted with Flutter and Python API integration, providing real-time data sync and intuitive UI.",
-      tags: ["Flutter", "Dart", "REST API", "Python", "MySQL"],
+      tags: ["Flutter", "Dart", "Python", "MySQL"],
       githubUrl: "https://github.com/bhargavadage08",
       liveUrl: "https://github.com/bhargavadage08"
     },
@@ -44,7 +45,7 @@ export const PORTFOLIO_DATA = {
       id: "fullstack-portfolio-portal",
       title: "Full Stack AI Portfolio Portal",
       description: "Modern, responsive portfolio application built with React, Tailwind CSS, and FastAPI/Python backend to highlight projects, AI workflows, and services.",
-      tags: ["React", "Tailwind CSS", "Python", "PostgreSQL", "Docker"],
+      tags: ["React", "Tailwind CSS", "Python", "PostgreSQL"],
       githubUrl: "https://github.com/bhargavadage08",
       liveUrl: "https://github.com/bhargavadage08"
     }
@@ -52,9 +53,9 @@ export const PORTFOLIO_DATA = {
   experience: [
     {
       id: "aspiring-aiml-dev",
-      role: "AI/ML & Gen AI Developer",
+      role: "Aspiring AI/ML & Gen AI Developer",
       company: "Independent Projects & Learning",
-      period: "2024 - Present",
+      period: "2025 - Present",
       description: "Designing and implementing machine learning workflows, RAG applications with LangChain, and full-stack web applications.",
       highlights: [
         "Architecting RAG-based search engines and document assistants using Python & vector databases.",
@@ -67,8 +68,8 @@ export const PORTFOLIO_DATA = {
     {
       id: "bca-degree",
       degree: "Bachelor of Computer Applications (BCA)",
-      institution: "University / College",
-      period: "Pursuing",
+      institution: "University of Mysuru",
+      period: "2025 - 2028",
       description: "Specializing in Computer Science fundamentals, Software Engineering, AI/ML concepts, Database Systems, and Web Application Development."
     }
   ]
