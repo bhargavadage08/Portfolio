@@ -1,52 +1,49 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { Cpu, Code2, Sparkles } from 'lucide-react';
 
 export default function About() {
   const { personal } = PORTFOLIO_DATA;
 
-  const handleCvClick = (e) => {
-    if (e) e.preventDefault();
-    const cvUrl = personal.cvUrl || '/Bhargav_Adage_CV.pdf';
-
-    // 1. Open in new tab
-    window.open(cvUrl, '_blank', 'noopener,noreferrer');
-
-    // 2. Download CV simultaneously
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.setAttribute('download', 'Bhargav_Adage_CV.pdf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
-    <section id="about" className="py-24 bg-slate-900/40 border-y border-slate-800/50 px-4 relative overflow-hidden">
-      {/* Background ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-cyan-500/5 blur-3xl pointer-events-none" />
-
+    <section id="about" className="py-20 px-4 relative">
       <div className="max-w-5xl mx-auto space-y-12 relative z-10">
 
-        {/* Main About Content */}
-        <div className="space-y-6 text-center">
+        {/* Section Title */}
+        <div className="text-center space-y-2">
+          <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">Get To Know Me</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">About Me</h2>
-          <div className="w-16 h-1 bg-cyan-400 mx-auto rounded-full" />
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+        </div>
+
+        {/* Main About Content */}
+        <div className="space-y-8">
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto text-center font-normal">
             {personal.bio}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 text-left">
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1 hover:border-cyan-500/30 transition-colors">
-              <h3 className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Focus Area</h3>
-              <p className="text-white text-base font-medium">Artificial Intelligence & Gen AI</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+            <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm space-y-3 hover:border-cyan-500/40 hover:bg-slate-900/90 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-800/60 text-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Cpu size={20} />
+              </div>
+              <h3 className="text-cyan-400 font-semibold text-xs uppercase tracking-wider">Focus Area</h3>
+              <p className="text-white text-base font-semibold">Artificial Intelligence & Gen AI</p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1 hover:border-cyan-500/30 transition-colors">
-              <h3 className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Development</h3>
-              <p className="text-white text-base font-medium">Full Stack Web & Mobile Apps</p>
+
+            <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm space-y-3 hover:border-cyan-500/40 hover:bg-slate-900/90 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-sky-950/80 border border-sky-800/60 text-sky-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Code2 size={20} />
+              </div>
+              <h3 className="text-cyan-400 font-semibold text-xs uppercase tracking-wider">Development</h3>
+              <p className="text-white text-base font-semibold">Full Stack Web & Mobile Apps</p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1 hover:border-cyan-500/30 transition-colors">
-              <h3 className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">Philosophy</h3>
-              <p className="text-white text-base font-medium">Learning by building & real impact</p>
+
+            <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm space-y-3 hover:border-cyan-500/40 hover:bg-slate-900/90 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-blue-950/80 border border-blue-800/60 text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Sparkles size={20} />
+              </div>
+              <h3 className="text-cyan-400 font-semibold text-xs uppercase tracking-wider">Philosophy</h3>
+              <p className="text-white text-base font-semibold">Learning by building real impact</p>
             </div>
           </div>
         </div>

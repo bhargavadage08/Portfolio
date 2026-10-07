@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       <Navbar />
-      <main>
+      <main className="space-y-4">
         <Hero />
         <About />
         <Skills />
