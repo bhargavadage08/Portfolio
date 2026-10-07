@@ -1,26 +1,11 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { Mail, ArrowRight, Download, FolderGit2 } from 'lucide-react';
-import { Github, Linkedin } from './Icons';
 
 export default function Hero() {
   const { personal } = PORTFOLIO_DATA;
 
-  const topSkills = ['Python', 'GenAI & RAG', 'LangChain', 'React', 'Flutter', 'PostgreSQL'];
-
-  const handleCvClick = () => {
-    const cvUrl = personal.cvUrl || '/Bhargav_Adage_CV.pdf';
-    window.open(cvUrl, '_blank', 'noopener,noreferrer');
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.setAttribute('download', 'Bhargav_Adage_CV.pdf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
-    <section className="min-h-screen min-h-[100dvh] pt-32 pb-24 sm:pt-36 sm:pb-28 lg:pt-40 lg:pb-36 flex flex-col justify-between px-4 sm:px-8 md:px-12 relative overflow-hidden">
+    <section className="min-h-screen min-h-[100dvh] pt-32 pb-24 sm:pt-36 sm:pb-28 lg:pt-40 lg:pb-36 flex flex-col justify-between px-4 sm:px-8 md:px-12 relative overflow-hidden bg-black text-neutral-100">
       {/* Ambient background glow elements */}
       <div className="absolute top-1/4 right-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -32,7 +17,7 @@ export default function Hero() {
 
           {/* Top Left Greeting */}
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-neutral-900/90 border border-neutral-800 rounded-full text-neutral-300 text-xs sm:text-sm font-medium shadow-xl backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
@@ -49,8 +34,8 @@ export default function Hero() {
           </div>
 
           {/* Top Right / Slightly Middle Short Information Card */}
-          <div className="md:max-w-md w-full p-6">
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+          <div className="md:max-w-md w-full p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800/80 backdrop-blur-md">
+            <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-normal">
               {personal.tagline} {personal.bio.slice(0, 140)}...
             </p>
           </div>
@@ -59,15 +44,15 @@ export default function Hero() {
 
         {/* Main Full-Page Display Banner for AI/ML & FULL STACK DEVELOPER */}
         <div className="space-y-8 my-auto pt-6 pb-6">
-          <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-[110px] xl:text-[125px] font-black uppercase tracking-tighter text-slate-100 leading-[0.95] select-none">
+          <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-[110px] xl:text-[125px] font-black uppercase tracking-tighter text-white leading-[0.95] select-none">
             AI/ML & <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent">
               GEN AI
             </span> ENGINEER
           </h1>
 
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-t border-slate-800/80 pt-8">
-            <p className="text-lg sm:text-2xl lg:text-3xl font-bold uppercase tracking-widest text-slate-400">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-t border-neutral-800/80 pt-8">
+            <p className="text-lg sm:text-2xl lg:text-3xl font-bold uppercase tracking-widest text-neutral-400">
               Full Stack Developer
             </p>
           </div>
@@ -76,4 +61,3 @@ export default function Hero() {
     </section>
   );
 }
-
