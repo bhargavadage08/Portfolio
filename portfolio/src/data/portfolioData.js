@@ -12,17 +12,18 @@ export const PORTFOLIO_DATA = {
     cvUrl: "/Bhargav_Adage_CV.pdf"
   },
   skills: [
-    { name: "Python", category: "AI / ML & Backend" },
-    { name: "RAG & LangChain", category: "Gen AI" },
     { name: "React", category: "Frontend" },
-    { name: "Flutter", category: "Mobile Apps" },
-    { name: "MySQL & PostgreSQL", category: "Database" },
+    { name: "Flutter", category: "Frontend" },
+    { name: "HTML & CSS", category: "Frontend" },
     { name: "Tailwind CSS & Bootstrap", category: "Frontend" },
+    { name: "RAG & LangChain", category: "AI / ML & Gen AI" },
+    { name: "Python for AI/ML", category: "AI / ML & Gen AI" },
+    { name: "FastAPI", category: "Backend" },
+    { name: "JavaScript", category: "Backend" },
+    { name: "C#", category: "Backend" },
+    { name: "MySQL & PostgreSQL", category: "Database" },
     { name: "Docker", category: "DevOps & Tools" },
-    { name: "AWS", category: "Cloud" },
-    { name: "C#", category: "Languages" },
-    { name: "JavaScript", category: "Languages" },
-    { name: "HTML & CSS", category: "Web Foundation" }
+    { name: "AWS", category: "Cloud" }
   ],
   projects: [
     {
@@ -45,7 +46,7 @@ export const PORTFOLIO_DATA = {
       id: "fullstack-portfolio-portal",
       title: "Full Stack AI Portfolio Portal",
       description: "Modern, responsive portfolio application built with React, Tailwind CSS, and FastAPI/Python backend to highlight projects, AI workflows, and services.",
-      tags: ["React", "Tailwind CSS", "Python", "PostgreSQL"],
+      tags: ["React", "Tailwind CSS", "FastAPI", "PostgreSQL"],
       githubUrl: "https://github.com/bhargavadage08",
       liveUrl: "https://github.com/bhargavadage08"
     }
@@ -59,7 +60,7 @@ export const PORTFOLIO_DATA = {
       description: "Designing and implementing machine learning workflows, RAG applications with LangChain, and full-stack web applications.",
       highlights: [
         "Architecting RAG-based search engines and document assistants using Python & vector databases.",
-        "Developing cross-platform mobile apps using Flutter and RESTful backends.",
+        "Developing cross-platform mobile apps using Flutter and FastAPI backends.",
         "Building responsive frontends using React and modern CSS frameworks like Tailwind CSS."
       ]
     }

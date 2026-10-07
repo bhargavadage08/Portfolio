@@ -14,8 +14,12 @@ export default function SkillsPage() {
     : skills.filter(s => s.category === selectedCategory);
 
   return (
-    <div className="pt-28 pb-24 px-4 sm:px-8 relative min-h-screen bg-black text-neutral-100">
-      <div className="max-w-5xl mx-auto space-y-12 relative z-10">
+    <div className="pt-28 pb-24 px-4 sm:px-12 md:px-16 relative min-h-screen bg-transparent text-neutral-100 overflow-hidden">
+      {/* Ambient background glow elements like Hero section */}
+      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto w-full space-y-12 relative z-10">
 
         {/* Page Header */}
         <div className="space-y-4 text-center sm:text-left border-b border-neutral-800/80 pb-8">

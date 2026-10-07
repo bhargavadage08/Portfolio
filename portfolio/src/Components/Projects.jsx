@@ -1,16 +1,20 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { ExternalLink, Folder } from 'lucide-react';
+import { Folder } from 'lucide-react';
 import { Github } from './Icons';
 
 export default function Projects() {
   const { projects } = PORTFOLIO_DATA;
 
   return (
-    <section id="projects" className="py-20 px-4">
-      <div className="max-w-5xl mx-auto space-y-10 text-center">
+    <section id="projects" className="min-h-screen py-24 px-4 sm:px-12 md:px-16 flex flex-col justify-center relative bg-transparent text-neutral-100 overflow-hidden">
+      {/* Ambient background glow elements like Hero section */}
+      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto w-full space-y-12 text-center relative z-10">
         <div className="space-y-2">
-          <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">Featured Work</span>
+          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-cyan-400">Featured Work</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Projects</h2>
         </div>
 
@@ -18,7 +22,7 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 hover:bg-slate-900/90 transition-all flex flex-col justify-between space-y-4 group"
+              className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800/80 hover:border-cyan-500/40 hover:bg-neutral-900/90 transition-all flex flex-col justify-between space-y-4 group"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -29,7 +33,7 @@ export default function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-slate-800 transition-colors"
+                    className="p-2 rounded-lg text-neutral-400 hover:text-cyan-400 hover:bg-neutral-800 transition-colors"
                     title="View Source Code"
                   >
                     <Github size={18} />
@@ -39,7 +43,7 @@ export default function Projects() {
                 <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed font-normal">
+                <p className="text-neutral-400 text-sm leading-relaxed font-normal">
                   {project.description}
                 </p>
               </div>
@@ -49,7 +53,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-0.5 rounded-full bg-slate-800/80 text-cyan-300 text-xs font-mono border border-slate-700/50"
+                      className="px-2.5 py-0.5 rounded-full bg-neutral-800/80 text-cyan-300 text-xs font-mono border border-neutral-700/50"
                     >
                       {tag}
                     </span>
