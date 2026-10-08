@@ -1,207 +1,170 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Code2, Cpu, Database, Sparkles, 
-  Lightbulb, ArrowRight, Atom, Smartphone, 
-  Layout, Brain, Terminal, Zap, FileCode, Server, Cloud, Box 
+  Code2, Sparkles, 
+  Lightbulb, ArrowRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Import local assets
+import reactLogo from '../assets/react.svg';
+import tailwindLogo from '../assets/tailwind.png';
+import ragLogo from '../assets/rag.webp';
+
 export default function About() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeTab, setActiveTab] = useState('Frontend');
+  const [isHovered, setIsHovered] = useState(false);
 
-  const skillSlides = [
-    {
-      id: 'frontend',
-      category: "Frontend Languages",
-      shortName: "Frontend",
-      description: "Building responsive, modern web & mobile user interfaces.",
-      icon: Code2,
-      skills: [
-        { name: "React", icon: Atom },
-        { name: "Flutter & Dart", icon: Smartphone },
-        { name: "HTML & CSS", icon: Code2 },
-        { name: "Tailwind CSS & Bootstrap", icon: Layout }
-      ]
-    },
-    {
-      id: 'ai-ml',
-      category: "AI / ML & Gen AI",
-      shortName: "AI / ML & Gen AI",
-      description: "Context-aware AI search systems, RAG workflows & LLMs.",
-      icon: Sparkles,
-      skills: [
-        { name: "RAG & LangChain", icon: Brain },
-        { name: "Python for AI/ML", icon: Terminal },
-        { name: "Vector Databases", icon: Database },
-        { name: "GenAI Integrations", icon: Sparkles }
-      ]
-    },
-    {
-      id: 'backend',
-      category: "Backend Frameworks",
-      shortName: "Backend",
-      description: "High-performance server backends, APIs, and microservices.",
-      icon: Cpu,
-      skills: [
-        { name: "FastAPI", icon: Zap },
-        { name: "JavaScript", icon: FileCode },
-        { name: "C#", icon: Server },
-        { name: "Python", icon: Terminal }
-      ]
-    },
-    {
-      id: 'database-cloud',
-      category: "Database & Cloud",
-      shortName: "Database & Cloud",
-      description: "Relational database design, cloud infrastructure, and DevOps.",
-      icon: Database,
-      skills: [
-        { name: "MySQL", icon: Database },
-        { name: "PostgreSQL", icon: Database },
-        { name: "AWS", icon: Cloud },
-        { name: "Docker", icon: Box }
-      ]
-    }
-  ];
+  const tabs = ['Frontend', 'Backend', 'Database', 'AI/ML'];
 
-  // Automatic slide rotation every 3.5 seconds
+  // Automatically slide the tabs every 3 seconds, pause on hover
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % skillSlides.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [skillSlides.length]);
+    let interval;
+    if (!isHovered) {
+      interval = setInterval(() => {
+        setActiveTab((prev) => {
+          const currentIndex = tabs.indexOf(prev);
+          return tabs[(currentIndex + 1) % tabs.length];
+        });
+      }, 3000); 
+    }
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
-  const activeSlide = skillSlides[currentSlide];
-  const IconComponent = activeSlide.icon;
+  const skills = {
+    "Frontend": [
+      { name: 'React', logo: reactLogo },
+      { name: 'Tailwind CSS', logo: tailwindLogo },
+      { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+      { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      { name: 'Bootstrap', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+    ],
+    "Backend": [
+      { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+      { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+      { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+    ],
+    "Database": [
+      { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+      { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    ],
+    "AI/ML": [
+      { name: 'RAG', logo: ragLogo },
+      { name: 'LangChain', logo: 'https://placehold.co/80x80/1a1a1a/06b6d4?text=LC' },
+      { name: 'Vector DB', logo: 'https://placehold.co/80x80/1a1a1a/06b6d4?text=VDB' },
+    ]
+  };
 
   return (
-    <section id="about" className="min-h-screen py-24 px-4 sm:px-12 md:px-16 flex flex-col justify-center relative bg-transparent text-neutral-100 overflow-hidden">
-      {/* Ambient background glow elements like Hero section */}
-      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto w-full space-y-10 relative z-10">
-
-        {/* 2-Column Grid Layout: Left Headline, Right Skills Slider */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <section className="relative py-24 bg-transparent text-neutral-100 min-h-screen flex items-center">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
           
-          {/* Left Side: Creative Mind Headline & Narrative */}
-          <div className="lg:col-span-5 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-cyan-400 text-xs font-mono">
-              <Lightbulb size={14} className="text-cyan-400 animate-pulse" />
-              <span>Creative Mind & Innovator</span>
+          {/* Left Column - Intro & Bio */}
+          <div className="lg:w-1/2 space-y-8 flex flex-col justify-center">
+            
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-950/60 border border-cyan-800/50 text-cyan-400 font-medium text-sm w-fit">
+              <Sparkles size={16} />
+              <span>Get to know me</span>
             </div>
-
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
-              Creative <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">
-                Mind.
-              </span>
+            
+            {/* Title */}
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500" style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2em' }}>
+                Creative
+              </span> Mind.
             </h2>
+            
+            {/* Quote block */}
+            <blockquote className="relative p-6 mt-4 border-l-4 border-cyan-500 bg-neutral-900/40 rounded-r-2xl text-lg text-neutral-300 italic font-light leading-relaxed max-w-xl">
+              "Technology is best when it brings people together and empowers them to create things they once thought impossible."
+              <span className="block mt-4 text-sm text-cyan-400 font-medium not-italic">— Matt Mullenweg</span>
+            </blockquote>
 
-            <p className="text-neutral-300 text-base sm:text-lg leading-relaxed font-normal max-w-md">
-              Combining creative problem solving with structured software engineering to build intelligent digital tools.
-            </p>
-
-            <div className="pt-2">
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-cyan-300 text-xs sm:text-sm font-mono font-semibold transition-all"
+            {/* Satisfying Animated Button */}
+            <div className="pt-8">
+              <Link 
+                to="/about-details"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-neutral-900 border border-cyan-500/50 rounded-full overflow-hidden text-cyan-400 font-bold tracking-wide transition-all duration-300 hover:border-cyan-400 hover:text-white shadow-[0_0_10px_rgba(34,211,238,0.1)] hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
               >
-                <span>Read Full Biography Page</span>
-                <ArrowRight size={16} />
+                {/* Background sliding effect */}
+                <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-0"></span>
+                
+                {/* Button Content */}
+                <span className="relative z-10 flex items-center gap-3">
+                  Know more about me
+                  <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
+                </span>
               </Link>
             </div>
           </div>
 
-          {/* Right Side: Compact Auto-Playing Skills Slider (Uniform Equal 2x2 Cards) */}
-          <div className="lg:col-span-6 space-y-4 max-w-sm w-full ml-auto">
+          {/* Right Column - Skills Grid Interactive */}
+          <div className="lg:w-1/2 w-full flex flex-col items-center">
             
-            {/* Category Tab Names with Monochrome White Underline Indicator */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 justify-end border-b border-neutral-900/60 pb-1">
-              {skillSlides.map((slide, index) => {
-                const isActive = currentSlide === index;
-                return (
+            <div 
+              className="w-full max-w-md"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              {/* Text Tabs with bottom hovering line */}
+              <div className="flex space-x-6 mb-10 border-b border-neutral-800 w-full justify-center">
+                {tabs.map((tab) => (
                   <button
-                    key={slide.id}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`relative pb-1.5 text-xs font-mono transition-colors cursor-pointer ${
-                      isActive
-                        ? 'text-white font-bold'
-                        : 'text-neutral-500 font-normal'
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`pb-3 font-bold text-sm transition-all duration-300 relative group ${
+                      activeTab === tab 
+                        ? 'text-cyan-400' 
+                        : 'text-neutral-400 hover:text-white'
                     }`}
                   >
-                    <span>{slide.shortName}</span>
-                    {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-white rounded-full transition-all duration-300" />
-                    )}
+                    {tab}
+                    <span 
+                      className={`absolute bottom-0 left-0 w-full h-0.5 rounded-t-full transition-all duration-300 ${
+                        activeTab === tab ? 'bg-cyan-400 scale-x-100' : 'bg-neutral-600 scale-x-0 group-hover:scale-x-100'
+                      }`}
+                    ></span>
                   </button>
-                );
-              })}
+                ))}
+              </div>
+
+              {/* Skills Grid */}
+              <div className="grid grid-cols-3 gap-y-8 gap-x-4 sm:gap-x-6 min-h-[350px]">
+                {skills[activeTab].map((skill, index) => (
+                  <div 
+                    key={`${activeTab}-${index}`} 
+                    className="flex flex-col items-center gap-3 group animate-fade-in"
+                  >
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-neutral-900/80 border border-neutral-800 flex items-center justify-center shadow-lg group-hover:shadow-cyan-500/20 group-hover:border-cyan-500/40 transition-all duration-300 overflow-hidden">
+                      <img 
+                        src={skill.logo} 
+                        alt={`${skill.name} logo`} 
+                        className="w-10 h-10 sm:w-12 sm:h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          e.target.onerror = null; 
+                          e.target.src = 'https://placehold.co/80x80/1a1a1a/06b6d4?text=404';
+                        }}
+                      />
+                    </div>
+                    <span className="text-sm font-semibold text-neutral-300 group-hover:text-cyan-400 transition-colors text-center">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Ultra Compact Transparent Slider Container */}
-            <div className="relative p-0 bg-transparent border-0 h-[195px] sm:h-[175px] flex flex-col justify-between">
-              
-              {/* Top Slide Meta Bar */}
-              <div className="flex items-center justify-between border-b border-neutral-900/80 pb-1.5 flex-wrap gap-2 shrink-0">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-neutral-900 text-cyan-400 flex items-center justify-center shrink-0">
-                    <IconComponent size={14} />
-                  </div>
-                  <h3 className="text-xs sm:text-sm font-bold text-white tracking-wide">
-                    {activeSlide.category}
-                  </h3>
-                </div>
-
-                <span className="text-cyan-400 font-mono text-[11px] opacity-80">
-                  {currentSlide + 1} / {skillSlides.length}
-                </span>
-              </div>
-
-              {/* Slide Content: 2x2 Split Layout with Uniform Equal-Sized Cards */}
-              <div className="grid grid-cols-2 gap-2.5 my-auto shrink-0 w-full">
-                {activeSlide.skills.map((skill, idx) => {
-                  const SkillIcon = skill.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="h-20 p-2.5 rounded-xl bg-neutral-950/60 border border-neutral-900 flex flex-col items-center justify-center text-center hover:border-neutral-800 transition-colors"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-neutral-900 text-cyan-400 flex items-center justify-center mb-1 shrink-0">
-                        <SkillIcon size={15} />
-                      </div>
-                      <h4 className="text-white text-[11px] font-semibold leading-tight text-center truncate w-full">
-                        {skill.name}
-                      </h4>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Bottom Slider Progress Indicator Dots */}
-              <div className="flex items-center justify-center pt-1.5 border-t border-neutral-900/80 shrink-0">
-                <div className="flex items-center gap-1.5">
-                  {skillSlides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        currentSlide === index ? 'w-5 bg-cyan-400' : 'w-1.5 bg-neutral-800'
-                      }`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-
+            <div className="mt-12">
+              <Link to="/contact" className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-bold transition-colors group">
+                Let's work together 
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
           </div>
 
         </div>
-
       </div>
     </section>
   );

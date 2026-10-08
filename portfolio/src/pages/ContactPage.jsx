@@ -35,7 +35,7 @@ export default function ContactPage() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
-            Contact & <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">Collaborate</span>
+            Contact & <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent" style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2em' }}>Collaborate</span>
           </h1>
 
           <p className="text-neutral-300 text-base sm:text-lg max-w-2xl leading-relaxed font-normal">

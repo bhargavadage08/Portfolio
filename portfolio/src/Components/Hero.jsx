@@ -27,7 +27,7 @@ export default function Hero() {
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight pt-1">
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent" style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2em' }}>
                 {personal.name}
               </span>
             </h2>
@@ -46,7 +46,7 @@ export default function Hero() {
         <div className="space-y-8 my-auto pt-6 pb-6">
           <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-[110px] xl:text-[125px] font-black uppercase tracking-tighter text-white leading-[0.95] select-none">
             AI/ML & <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent" style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2em' }}>
               GEN AI
             </span> ENGINEER
           </h1>
